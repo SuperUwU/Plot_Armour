@@ -1,40 +1,71 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { YouTube } from 'astro-embed';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { YouTube } from "astro-embed";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+const heroImage = "/PA Splash.png";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1> Welcome, to Midgaia!</h1>
-			<p>
-				Welcome to the home of plot armour.
-			</p>
-			<p>
-				This is your one stop shop for all things plot armour!
-			</p>
-			<p>Catch the last episode below : <YouTube id="https://www.youtube.com/watch?v=-RBkLmDzofs" /> </p>
-			
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			
-			<p>
-				Get involved and <a href="https://discord.gg/29RyNh7gJn">join us on Discord</a> and get to know us.
-			</p>		
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1 style="color: #e1e5e6;">Welcome, to Myd'Gaia!</h1>
+
+      <div class="hero-image">
+        {heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
+      </div>
+      <p>Welcome to the home of plot armour.</p>
+      <p>This is your one stop shop for all things plot armour!</p>
+      <p>
+        Catch the last episode below:
+        <div class="youtube-embed">
+          <YouTube id="https://www.youtube.com/watch?v=-RBkLmDzofs" />
+        </div>
+      </p>
+
+      <p>
+        Get involved and <a href="https://discord.gg/29RyNh7gJn"
+          >join us on Discord</a
+        > and get to know us.
+      </p>
+    </main>
+    <Footer />
+  </body>
+  <style>
+ .hero-image {
+      width: 100%;
+    }
+    .hero-image img {
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+      transition: box-shadow 0.3s ease; /* Smooth transition for box shadow */
+    }
+    .hero-image img:hover {
+      box-shadow: var(--box-shadow); /* Apply box shadow on hover */
+    }
+    .youtube-embed {
+      display: block;
+      margin: 0 auto;
+      position: relative; /* Positioning for the box shadow */
+      border-radius: 12px; /* Optional: round the corners */
+      overflow: hidden; /* Ensure shadow doesn't overflow */
+      margin: 20px 0; /* Adds some spacing around the embedded video */
+      transition: box-shadow 0.3s ease; /* Smooth transition for box shadow */
+    }
+    .youtube-embed:hover {
+      box-shadow: var(--box-shadow); /* Apply box shadow on hover */
+    }
+    /* Optional: Make sure the iframe itself fits well */
+    .youtube-embed > iframe {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </html>
