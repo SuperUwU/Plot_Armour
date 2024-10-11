@@ -1,0 +1,177 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+// Cast member data
+const castMembers = [
+  {
+    name: "Sage",
+    pronouns: "she/her",
+    socials: "@SageSocial",
+    role: "Cast Member",
+    currentShow: "Hushed Embers",
+    fact: "Sage is a master of strategy!",
+    image: "../Cast/Sageface.png", // Replace with actual image path
+  },
+  {
+    name: "Comfy",
+    pronouns: "he/him",
+    socials: "@ComfySocial",
+    role: "Cast Member",
+    currentShow: "Hushed Embers",
+    fact: "Comfy can solve a Rubik's Cube in under a minute!",
+    image: "../Cast/Comfy (Sophie).jpg", // Replace with actual image path
+  },
+  {
+    name: "Ez",
+    pronouns: "they/them",
+    socials: "@EzSocial",
+    role: "Cast Member",
+    currentShow: "Hushed Embers",
+    fact: "Ez has a collection of over 100 board games!",
+    image: "../Cast/AstraBea (Ez).jpg", // Replace with actual image path
+  },
+  {
+    name: "Russ",
+    pronouns: "he/him",
+    socials: "@RussSocial",
+    role: "Cast Member",
+    currentShow: "Hushed Embers",
+    fact: "Russ can cook a perfect steak every time!",
+    image: "../Cast/Lester (Russ).jpg", // Replace with actual image path
+  },
+  {
+    name: "Lavellan",
+    pronouns: "she/her",
+    socials: "@LavellanSocial",
+    role: "Cast Member",
+    currentShow: "Hushed Embers",
+    fact: "Lavellan speaks three languages!",
+    image: "../Cast/Lavellaan (Towe).png", // Replace with actual image path
+  },
+  {
+    name: "Jay",
+    pronouns: "he/they",
+    socials: "@JaySocial",
+    role: "Cast Member",
+    currentShow: "Hushed Embers",
+    fact: "Jay is an amateur magician!",
+    image: "../Cast/BlueJay (Jay).jpg", // Replace with actual image path
+  },
+  {
+    name: "Lamb",
+    pronouns: "she/her",
+    socials: "@LambSocial",
+    role: "Cast Member",
+    currentShow: "Hushed Embers",
+    fact: "Lamb has a pet snake named Slinky!",
+    image: "../Cast/lamb.png", // Replace with actual image path
+  },
+  {
+    name: "Sam",
+    pronouns: "he/him",
+    socials: "@SamSocial",
+    role: "Cast Member",
+    currentShow: "Hushed Embers",
+    fact: "Sam has a knack for fixing electronics!",
+    image: "../Cast/fb6c8fb2-8044-4db6-b281-56c0377df0f6.jpg", // Replace with actual image path
+  },
+  {
+    name: "Ryn",
+    pronouns: "they/them",
+    socials: "@RynSocial",
+    role: "Cast Member",
+    currentShow: "Hushed Embers",
+    fact: "Ryn can juggle five balls at once!",
+    image: "../Cast/Ryn.png", // Replace with actual image path
+  },
+  {
+    name: "Drizz",
+    pronouns: "he/him",
+    socials: "@DrizzSocial",
+    role: "Cast Member",
+    currentShow: "Hushed Embers",
+    fact: "Drizz has a background in theater!",
+    image: "../Cast/Drizz.png", // Replace with actual image path
+  },
+];
+
+const heroImage = "/PA Splash.png"; // Replace with the actual hero image path
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="Meet the Cast" description="Meet the players from our D&D campaign." />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1 style="color: #e1e5e6;">Meet the Cast</h1>
+      
+      <div class="hero-image">
+        {heroImage && <img width={1020} height={510} src={heroImage} alt="Hero Image" />}
+      </div>
+
+      <p>Here are the talented players of our campaign:</p>
+
+      {castMembers.map((member, index) => (
+        <div class="cast-member" style={`flex-direction: ${index % 2 === 0 ? 'row' : 'row-reverse'}`}>
+          <img src={member.image} alt={member.name} />
+          <div class="text-container">
+            <h2>{member.name}</h2>
+            <p><strong>Pronouns:</strong> {member.pronouns}</p>
+            <p><strong>Socials:</strong> {member.socials}</p>
+            <p><strong>Role:</strong> {member.role}</p>
+            <p><strong>Current Show:</strong> {member.currentShow}</p>
+            <p><strong>Fact:</strong> {member.fact}</p>
+          </div>
+        </div>
+      ))}
+    </main>
+    <Footer />
+  </body>
+  <style>
+    .hero-image {
+      width: 100%;
+    }
+    .hero-image img {
+      display: block;
+      margin: 0 auto;
+      border-radius: 50px;
+      transition: box-shadow 0.3s ease; /* Smooth transition for box shadow */
+    }
+    .hero-image img:hover {
+      box-shadow: var(--box-shadow); /* Apply box shadow on hover */
+    }
+    .cast-member {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2em;
+      padding: 1em;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .cast-member img {
+      width: 250px; /* Adjust size as needed */
+      height: auto;
+      border-radius: 8px;
+      margin-right: 1.5em; /* Space between image and text */
+      transition: box-shadow 0.3s ease; /* Smooth transition for box shadow */
+    }
+    .cast-member img:hover {
+      box-shadow: var(--box-shadow); /* Apply box shadow on hover */
+    }
+    .text-container {
+      margin-left: 1.5em; /* Add left margin for text container on left image */
+      margin-right: 1.5em; /* Add right margin for text container on right image */
+    }
+    .cast-member h2 {
+      margin: 0 0 0.5em;
+    }
+    .cast-member p {
+      margin: 0;
+    }
+  </style>
+</html>
