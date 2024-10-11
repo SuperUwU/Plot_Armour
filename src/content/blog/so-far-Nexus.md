@@ -1,8 +1,8 @@
 ---
-title: 'Campaign Overview - Hushed Embers'
+title: 'Campaign Overview - Nexus'
 description: 'An overview of our D&D campaign so far, highlighting key events and character developments.'
-pubDate: 'Oct 11 2024'
-heroImage: '../../blog/Hushed_Embers.png'
+pubDate: 'Oct 10 2024'
+heroImage: '../../blog/Nexus.png'
 ---
 
 Our D&D campaign has been an exhilarating journey filled with unexpected twists, challenging encounters, and unforgettable moments. Below is a summary of our adventure so far.

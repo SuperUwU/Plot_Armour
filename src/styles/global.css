@@ -29,11 +29,11 @@
   font-style: normal;
   font-display: swap;
 }
-body {
+body{
   font-family: "Atkinson", sans-serif;
   margin: 0;
   padding: 0;
-  text-align: left;
+  text-align: justify;
   background: linear-gradient(var(--gray-gradient)) no-repeat;
   background-color: var(--gray-light); /* Light Grey */
   background-size: 100% 625px;
