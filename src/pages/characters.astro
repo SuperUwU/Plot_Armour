@@ -1,0 +1,105 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+// Character data
+const characters = [
+  {
+    name: "Valentina",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor libero enim, in dictum eros rhoncus vel. Ut egestas enim non urna eleifend venenatis. Ut eros sapien, aliquam ac sem ac, volutpat porta metus. Nullam gravida quam sapien, a rutrum nisl tempor in. Nam non lorem consequat, suscipit mi finibus, accumsan arcu. Nam aliquam aliquet lorem, sit amet scelerisque turpis tincidunt imperdiet. Cras consectetur lectus elementum tristique luctus. Praesent sodales faucibus nisl sed congue. Etiam viverra tempus dui, eget vulputate nibh tristique id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras mollis fermentum libero, eget pulvinar elit suscipit a. Etiam ullamcorper auctor odio id lobortis. Proin blandit lorem libero, vel congue dui gravida placerat.",
+    image: "../Characters/Blade_and_Brilliance.png", // Replace with actual image path
+  },
+  {
+    name: "Basil",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor libero enim, in dictum eros rhoncus vel. Ut egestas enim non urna eleifend venenatis. Ut eros sapien, aliquam ac sem ac, volutpat porta metus. Nullam gravida quam sapien, a rutrum nisl tempor in. Nam non lorem consequat, suscipit mi finibus, accumsan arcu. Nam aliquam aliquet lorem, sit amet scelerisque turpis tincidunt imperdiet. Cras consectetur lectus elementum tristique luctus. Praesent sodales faucibus nisl sed congue. Etiam viverra tempus dui, eget vulputate nibh tristique id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras mollis fermentum libero, eget pulvinar elit suscipit a. Etiam ullamcorper auctor odio id lobortis. Proin blandit lorem libero, vel congue dui gravida placerat.",
+    image: "../Characters/Child_of_the_Stars.png", // Replace with actual image path
+  },
+  {
+    name: "Xylia",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor libero enim, in dictum eros rhoncus vel. Ut egestas enim non urna eleifend venenatis. Ut eros sapien, aliquam ac sem ac, volutpat porta metus. Nullam gravida quam sapien, a rutrum nisl tempor in. Nam non lorem consequat, suscipit mi finibus, accumsan arcu. Nam aliquam aliquet lorem, sit amet scelerisque turpis tincidunt imperdiet. Cras consectetur lectus elementum tristique luctus. Praesent sodales faucibus nisl sed congue. Etiam viverra tempus dui, eget vulputate nibh tristique id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras mollis fermentum libero, eget pulvinar elit suscipit a. Etiam ullamcorper auctor odio id lobortis. Proin blandit lorem libero, vel congue dui gravida placerat.",
+    image: "../Characters/Potential_Incarnate.png", // Replace with actual image path
+  },
+  {
+    name: "Garathrim",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor libero enim, in dictum eros rhoncus vel. Ut egestas enim non urna eleifend venenatis. Ut eros sapien, aliquam ac sem ac, volutpat porta metus. Nullam gravida quam sapien, a rutrum nisl tempor in. Nam non lorem consequat, suscipit mi finibus, accumsan arcu. Nam aliquam aliquet lorem, sit amet scelerisque turpis tincidunt imperdiet. Cras consectetur lectus elementum tristique luctus. Praesent sodales faucibus nisl sed congue. Etiam viverra tempus dui, eget vulputate nibh tristique id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras mollis fermentum libero, eget pulvinar elit suscipit a. Etiam ullamcorper auctor odio id lobortis. Proin blandit lorem libero, vel congue dui gravida placerat.",
+    image: "../Characters/Son_of_the_Flame.png", // Replace with actual image path
+  },
+];
+
+const heroImage = "../Characters/Landscape_Pretty_elf_uwu.png"; // Replace with the actual hero image path
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="Meet the Characters" description="Meet the characters from our D&D campaign." />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1 style="color: #e1e5e6;">Meet the Characters</h1>
+      
+      <div class="hero-image">
+        {heroImage && <img width={1020} height={510} src={heroImage} alt="Hero Image" />}
+      </div>
+
+      <p>Here are the brave adventurers of our campaign:</p>
+
+      {characters.map((character, index) => (
+        <div class={`character ${index % 2 === 0 ? 'left' : 'right'}`}>
+          <img src={character.image} alt={character.name} />
+          <div>
+            <h2>{character.name}</h2>
+            <p>{character.description}</p>
+          </div>
+        </div>
+      ))}
+    </main>
+    <Footer />
+  </body>
+  <style>
+    .hero-image {
+      width: 100%;
+    }
+    .hero-image img {
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+      transition: box-shadow 0.3s ease; /* Smooth transition for box shadow */
+    }
+    .hero-image img:hover {
+      box-shadow: var(--box-shadow); /* Apply box shadow on hover */
+    }
+    .character {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2em;
+      padding: 1em;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+    }
+    .character.left {
+      flex-direction: row; /* Image on the left */
+    }
+    .character.right {
+      flex-direction: row-reverse; /* Image on the right */
+    }
+    .character img {
+      width: 350px; /* Adjust size as needed */
+      height: auto;
+      border-radius: 18px;
+      margin: 0 1.5em; /* Space between image and text */
+      transition: box-shadow 0.3s ease; /* Smooth transition for box shadow */
+    }
+    .character img:hover {
+      box-shadow: var(--box-shadow); /* Apply box shadow on hover */
+    }
+    .character h2 {
+      margin: 0 0 0.5em;
+    }
+    .character p {
+      margin: 0;
+    }
+  </style>
+</html>
